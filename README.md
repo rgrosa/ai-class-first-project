@@ -1,1 +1,1 @@
-# ai-class-first-project
+# graph-studies
