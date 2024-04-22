@@ -1,5 +1,6 @@
 from src.graph import Graph
 import xmltodict
+from collections import deque
 
 
 def dfs(graph, start, goal) -> (int, float, [int]):
@@ -7,6 +8,7 @@ def dfs(graph, start, goal) -> (int, float, [int]):
     stack = []
     visited = []
     stack.append(start)
+    # RETURN VARIABLES
     number_of_visited = 0
     length = 0.0
     way = []
@@ -23,6 +25,22 @@ def dfs(graph, start, goal) -> (int, float, [int]):
 
 def bfs(graph, start: int, goal: int) -> (int, float, [int]):
     """Busca em graph, um caminho entre start e goal usando busca em largura."""
+    queue = deque()
+    visited = []
+    queue.appendleft(start)
+    # RETURN VARIABLES
+    number_of_visited = 0
+    length = 0.0
+    way = []
+    while queue:
+        vertex_id = queue.pop()
+        if goal == vertex_id:
+            return {"visited": number_of_visited, "length": length, "way": way}
+        if vertex_id not in visited:
+            number_of_visited, length, way = process(number_of_visited, length, way, vertex_id)
+            visited.append(vertex_id)
+            for u in graph.get_neighbors(vertex_id):
+                queue.appendleft(graph.get_vertex_id(u))
 
 
 def branch_and_bound(graph, start: int, goal: int) -> (int, float, [int]):
@@ -47,8 +65,9 @@ def process(visit, length, way, vertex_id) -> (int, float, [int]):
 def main():
     graph = read_graph("graph_test_tree.xml")  ##coloca o nome do arquivo aqui
     dfs_result = dfs(graph, 0, 5)
+    bfs_result = bfs(graph, 0, 5)
     print(dfs_result)
-
+    print(bfs_result)
 
 def read_graph(filename) -> Graph:
     """Le a estrutura do grafo a partir de um arquivo."""
