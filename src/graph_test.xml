@@ -1,0 +1,56 @@
+<graph size="5">
+    <nodes>
+        <node id="0">
+            <lat>0.000 </lat>
+            <lon>0.000 </lon>
+        </node>
+        <node id="1">
+            <lat>5.000 </lat>
+            <lon>6.000 </lon>
+        </node>
+        <node id="2">
+            <lat>3.000 </lat>
+            <lon>2.000 </lon>
+        </node>
+            <node id="3">
+            <lat>1.000 </lat>
+            <lon>2.000 </lon>
+        </node>
+        <node id="4">
+            <lat>3.000 </lat>
+            <lon>6.000 </lon>
+        </node>
+    </nodes>
+    <edges size="5">
+        <edge>
+            <nodein>0</nodein>
+            <nodeout>1</nodeout>
+            <weigth>1</weigth>
+        </edge>
+        <edge>
+            <nodein>1</nodein>
+            <nodeout>2</nodeout>
+            <weigth>2</weigth>
+        </edge>
+        <edge>
+            <nodein>2</nodein>
+            <nodeout>3</nodeout>
+            <weigth>5</weigth>
+        </edge>
+        <edge>
+            <nodein>3</nodein>
+            <nodeout>4</nodeout>
+            <weigth>4</weigth>
+        </edge>
+        <edge>
+            <nodein>4</nodein>
+            <nodeout>0</nodeout>
+            <weigth>6</weigth>
+        </edge>
+        <edge>
+            <nodein>4</nodein>
+            <nodeout>1</nodeout>
+            <weigth>2</weigth>
+        </edge>
+    </edges>
+</graph>
