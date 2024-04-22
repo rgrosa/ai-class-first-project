@@ -10,13 +10,13 @@ class Graph:
 
         for vertex in vertices:
             id = int(vertex.get('@id'))
-            object = {'latitude': vertex.get('lat'), 'longitude':vertex.get('lon')}
+            object = {'id': id, 'latitude': vertex.get('lat'), 'longitude':vertex.get('lon')}
             self.graph[id].append({'vertex': object})
 
         for edge in edges:
             vertexIn = int(edge.get('nodein'))
             vertexOut = int(edge.get('nodeout'))
-            weigth =  int(edge.get('weigth'))
+            weigth =  float(edge.get('weigth'))
             self.graph[vertexIn].append({'edge': {'vertexOut': vertexOut, 'weigth': weigth}})
 
 
@@ -41,11 +41,21 @@ class Graph:
         for vertex, neighbors in self.adjacency_list.items():
             print(f"{vertex} -> {' '.join(map(str, neighbors))}")
  '''
-    def get_neighbors(self, vertex):
+    def get_neighbors(self, vertex_id):
         try:
-            return self.graph[vertex]
+            neighbors = []
+            vertex_info = self.graph[vertex_id]
+
+            for vertex in vertex_info:
+                if vertex.get('vertex') == None:
+                    edge = vertex.get('edge')
+                    neighbors.append(self.graph[edge.get('vertexOut')])
+            return neighbors
         except KeyError:
             return None
 
+    def get_vertex_id(self, vertex):
+        return vertex[0].get('vertex').get('id')
 
-
+    def get_vertex(self, vertex_id):
+        return self.graph[vertex_id]
