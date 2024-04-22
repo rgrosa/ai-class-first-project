@@ -1,4 +1,4 @@
-<graph size="5">
+<graph size="7">
     <nodes>
         <node id="0">
             <lat>0.000 </lat>
@@ -18,38 +18,46 @@
         </node>
         <node id="4">
             <lat>3.000 </lat>
+            <lon>7.000 </lon>
+        </node>
+        <node id="5">
+            <lat>3.000 </lat>
+            <lon>6.000 </lon>
+        </node>
+        <node id="6">
+            <lat>-3.000 </lat>
             <lon>6.000 </lon>
         </node>
     </nodes>
-    <edges>
+    <edges size="7">
         <edge>
             <nodein>0</nodein>
             <nodeout>1</nodeout>
             <weigth>1</weigth>
         </edge>
         <edge>
-            <nodein>1</nodein>
+            <nodein>0</nodein>
             <nodeout>2</nodeout>
             <weigth>2</weigth>
         </edge>
         <edge>
-            <nodein>2</nodein>
+            <nodein>1</nodein>
             <nodeout>3</nodeout>
             <weigth>5</weigth>
         </edge>
         <edge>
-            <nodein>3</nodein>
+            <nodein>1</nodein>
             <nodeout>4</nodeout>
             <weigth>4</weigth>
         </edge>
         <edge>
-            <nodein>4</nodein>
-            <nodeout>0</nodeout>
+            <nodein>2</nodein>
+            <nodeout>5</nodeout>
             <weigth>6</weigth>
         </edge>
         <edge>
-            <nodein>4</nodein>
-            <nodeout>1</nodeout>
+            <nodein>2</nodein>
+            <nodeout>6</nodeout>
             <weigth>2</weigth>
         </edge>
     </edges>

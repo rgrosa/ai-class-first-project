@@ -2,7 +2,7 @@ from src.graph import Graph
 from src.search import Search
 import xmltodict
 
-file = xmltodict.parse(open("graph_test.xml", "r").read())
+file = xmltodict.parse(open("graph_test_tree.xml", "r").read())
 file_content = file.__getitem__('graph')
 graph_size = file_content.__getitem__('@size')
 nodes = file_content.__getitem__('nodes').__getitem__('node')
